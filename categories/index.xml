@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on </title>
+    <title>Categories on Feng Chong</title>
     <link>https://fchong96.github.io/categories/</link>
-    <description>Recent content in Categories on </description>
+    <description>Recent content in Categories on Feng Chong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 19 Oct 2018 20:08:42 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fchong96.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>syntax</title>
+      <link>https://fchong96.github.io/categories/syntax/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fchong96.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://fchong96.github.io/categories/themes/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fchong96.github.io/categories/themes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>fable</title>
@@ -66,24 +84,6 @@
     </item>
     
     <item>
-      <title>imperdiet</title>
-      <link>https://fchong96.github.io/categories/imperdiet/</link>
-      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/imperdiet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aliqua</title>
-      <link>https://fchong96.github.io/categories/aliqua/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/aliqua/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>aliquam auctor</title>
       <link>https://fchong96.github.io/categories/aliquam-auctor/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
@@ -98,123 +98,6 @@
       <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://fchong96.github.io/categories/do/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>facilisi odio</title>
-      <link>https://fchong96.github.io/categories/facilisi-odio/</link>
-      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/facilisi-odio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>id</title>
-      <link>https://fchong96.github.io/categories/id/</link>
-      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/id/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arcu eleifend</title>
-      <link>https://fchong96.github.io/categories/arcu-eleifend/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/arcu-eleifend/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dignissim</title>
-      <link>https://fchong96.github.io/categories/dignissim/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/dignissim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>morbi</title>
-      <link>https://fchong96.github.io/categories/morbi/</link>
-      <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/morbi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aliquet ligula</title>
-      <link>https://fchong96.github.io/categories/aliquet-ligula/</link>
-      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/aliquet-ligula/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>habitant</title>
-      <link>https://fchong96.github.io/categories/habitant/</link>
-      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/habitant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>phasellus</title>
-      <link>https://fchong96.github.io/categories/phasellus/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/phasellus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rhoncus venenatis</title>
-      <link>https://fchong96.github.io/categories/rhoncus-venenatis/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/rhoncus-venenatis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mauris</title>
-      <link>https://fchong96.github.io/categories/mauris/</link>
-      <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/mauris/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ridiculus</title>
-      <link>https://fchong96.github.io/categories/ridiculus/</link>
-      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/ridiculus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>diam aliqua</title>
-      <link>https://fchong96.github.io/categories/diam-aliqua/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/diam-aliqua/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fringilla</title>
-      <link>https://fchong96.github.io/categories/fringilla/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://fchong96.github.io/categories/fringilla/</guid>
       <description></description>
     </item>
     
