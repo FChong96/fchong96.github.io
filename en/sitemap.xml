@@ -376,31 +376,6 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/about/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pl"
-                href="https://fchong96.github.io/pl/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://fchong96.github.io/pt/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/about/"
-                />
-  </url>
-  
-  <url>
     <loc>https://fchong96.github.io/categories/fable/</loc>
     <lastmod>2018-10-19T20:08:42+05:30</lastmod>
   </url>
