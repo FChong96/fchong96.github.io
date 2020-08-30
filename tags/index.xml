@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Feng Chong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fchong96.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>alert</title>
+      <link>https://fchong96.github.io/tags/alert/</link>
+      <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fchong96.github.io/tags/alert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UIkit</title>
+      <link>https://fchong96.github.io/tags/uikit/</link>
+      <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fchong96.github.io/tags/uikit/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>css</title>

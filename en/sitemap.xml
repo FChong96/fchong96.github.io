@@ -16,8 +16,13 @@
   </url>
   
   <url>
+    <loc>https://fchong96.github.io/tags/alert/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://fchong96.github.io/categories/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -66,23 +71,13 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/tags/css/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/tags/css/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/tags/css/"
-                />
+    <loc>https://fchong96.github.io/categories/code/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://fchong96.github.io/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -131,38 +126,8 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/tags/html/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/tags/html/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/tags/html/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://fchong96.github.io/tags/markdown/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/tags/markdown/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/tags/markdown/"
-                />
-  </url>
-  
-  <url>
     <loc>https://fchong96.github.io/blog/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -176,23 +141,13 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/categories/syntax/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/categories/syntax/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/categories/syntax/"
-                />
+    <loc>https://fchong96.github.io/categories/programming/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://fchong96.github.io/tags/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -241,17 +196,77 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/categories/themes/</loc>
+    <loc>https://fchong96.github.io/tags/uikit/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/blog/dialogpopup/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/about/</loc>
+    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/tags/css/</loc>
     <lastmod>2020-07-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://fchong96.github.io/fr/categories/themes/"
+                href="https://fchong96.github.io/fr/tags/css/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://fchong96.github.io/categories/themes/"
+                href="https://fchong96.github.io/tags/css/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/tags/html/</loc>
+    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://fchong96.github.io/fr/tags/html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fchong96.github.io/tags/html/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/tags/markdown/</loc>
+    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://fchong96.github.io/fr/tags/markdown/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fchong96.github.io/tags/markdown/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/categories/syntax/</loc>
+    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://fchong96.github.io/fr/categories/syntax/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fchong96.github.io/categories/syntax/"
                 />
   </url>
   
@@ -267,6 +282,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fchong96.github.io/tags/themes/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/categories/themes/</loc>
+    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://fchong96.github.io/fr/categories/themes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fchong96.github.io/categories/themes/"
                 />
   </url>
   
@@ -406,12 +436,12 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/tags/ayurvedha/</loc>
+    <loc>https://fchong96.github.io/categories/ayurvedha/</loc>
     <lastmod>2018-10-19T19:43:49+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/categories/ayurvedha/</loc>
+    <loc>https://fchong96.github.io/tags/ayurvedha/</loc>
     <lastmod>2018-10-19T19:43:49+05:30</lastmod>
   </url>
   
@@ -436,22 +466,12 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/categories/code/</loc>
-    <lastmod>2018-10-18T18:43:49+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://fchong96.github.io/posts/code-demo/</loc>
     <lastmod>2018-10-18T18:43:49+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://fchong96.github.io/tags/json/</loc>
-    <lastmod>2018-10-18T18:43:49+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fchong96.github.io/categories/programming/</loc>
     <lastmod>2018-10-18T18:43:49+05:30</lastmod>
   </url>
   

@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>UIKit学习—如何弹出对话框 - Feng Chong</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.62.2" /><meta itemprop="name" content="UIKit学习—如何弹出对话框">
+<meta itemprop="description" content="最近开始阅读raywenderlich的iOS Apprentice1来学习UIKit 和 SwiftUI。 第一个app是Bullseye, 一个简单的小游戏，考验谁的估计更准确（类似于商场门口按10秒得优惠券的小游戏）。这也是我学习CS193P期间的补充。 首先要解决的就是弹出对话框的使用，本文通过简单的程序说明弹出式对话框的使用方法。
+ 前言 弹出式对话框在iOS中经常使用，无论是APP Store中下载App时，还是输错密码的提示，很多地方都在使用。而且其程序比较简单，一般封装起来使用。
+本文只是以例子的形式简单的实现弹出对话框的使用。
+准备 操作系统：macOS Catalina 10.15.6 Xcode: Version 11.3.1
+开始 首先我们需要新建一个Xcode project，选择iOS下Single View App模版，然后给文件命名。注意 Language选择 Swift ，Use Interface选择 Storyboard ，因为我们要使用UIKit，而且不需要 Use Core Data, Include Unit Tests 和 Include UI Tests。
+创建成功后，我们首先要创建一个按键来触发弹出对话框的动作，就像你在手机上滑或者按按键一样。我们找到左侧Project navigator，点击Main.storyboard来编辑我们的视图。点击右上边工具条中加号图案，会显示出可用的控件列表。我们只需要添加一个按键（Button）即可。将它拖到Interface Bulider中会显示出其与边缘的位置关系，我们可以靠左边，靠右边或者放在视图正中间。双击Button 可以给它重命名（它默认叫Button，我改为了Tap）。通过调整它边框的大小我们可以调整它所占的范围。字体可以在右边栏Button中Font中修改。
+点击左侧Project navigator中ViewController.swift来添加本次实验的程序。ViewController.swift是一段swift程序来允许我们对视图进行控制。每一个视图都应该对应一个swift文件。 在class ViewController中添加下列程序：
+@IBAction func showAlert(){ } 这时候运行程序是没有反应的。因为我们按键Tap没有与showAlert之间建立联系，同时我们的showAlert中也没有要执行的内容。
+在Main.storyboard中选中Tap按住control键将其拖到View Controller Scence中的View Controller, 会弹Action Segue，点击Sent Events中的项选中showAlert，就可以建立 Tap与showAlert之间的联系（在右边栏箭头型图标栏中可以看到或着此时打开ViewController.swift我们也能看到showAlert()行前面的数字变成了实心圆）。
+ 或者双屏显示内容的话之间将其指向ViewController.swift 中（这样会自动添加程序，给函数命名，不用自己添加之前的程序，就直接建立了按键与程序之间的联系）。
+ 然后在ViewController.swift中添加程序：
+@IBAction func showAlert(){ let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: .">
+<meta itemprop="datePublished" content="2020-08-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="247">
+<meta itemprop="image" content="https://fchong96.github.io/img/dia08302020/dolphin.jpg">
+<meta itemprop="image" content="https://fchong96.github.io/img/dia08302020/dialog1.png">
+<meta itemprop="image" content="https://fchong96.github.io/img/dia08302020/result.png">
+
+
+
+<meta itemprop="keywords" content="UIkit,alert," /><meta property="og:title" content="UIKit学习—如何弹出对话框" />
+<meta property="og:description" content="最近开始阅读raywenderlich的iOS Apprentice1来学习UIKit 和 SwiftUI。 第一个app是Bullseye, 一个简单的小游戏，考验谁的估计更准确（类似于商场门口按10秒得优惠券的小游戏）。这也是我学习CS193P期间的补充。 首先要解决的就是弹出对话框的使用，本文通过简单的程序说明弹出式对话框的使用方法。
+ 前言 弹出式对话框在iOS中经常使用，无论是APP Store中下载App时，还是输错密码的提示，很多地方都在使用。而且其程序比较简单，一般封装起来使用。
+本文只是以例子的形式简单的实现弹出对话框的使用。
+准备 操作系统：macOS Catalina 10.15.6 Xcode: Version 11.3.1
+开始 首先我们需要新建一个Xcode project，选择iOS下Single View App模版，然后给文件命名。注意 Language选择 Swift ，Use Interface选择 Storyboard ，因为我们要使用UIKit，而且不需要 Use Core Data, Include Unit Tests 和 Include UI Tests。
+创建成功后，我们首先要创建一个按键来触发弹出对话框的动作，就像你在手机上滑或者按按键一样。我们找到左侧Project navigator，点击Main.storyboard来编辑我们的视图。点击右上边工具条中加号图案，会显示出可用的控件列表。我们只需要添加一个按键（Button）即可。将它拖到Interface Bulider中会显示出其与边缘的位置关系，我们可以靠左边，靠右边或者放在视图正中间。双击Button 可以给它重命名（它默认叫Button，我改为了Tap）。通过调整它边框的大小我们可以调整它所占的范围。字体可以在右边栏Button中Font中修改。
+点击左侧Project navigator中ViewController.swift来添加本次实验的程序。ViewController.swift是一段swift程序来允许我们对视图进行控制。每一个视图都应该对应一个swift文件。 在class ViewController中添加下列程序：
+@IBAction func showAlert(){ } 这时候运行程序是没有反应的。因为我们按键Tap没有与showAlert之间建立联系，同时我们的showAlert中也没有要执行的内容。
+在Main.storyboard中选中Tap按住control键将其拖到View Controller Scence中的View Controller, 会弹Action Segue，点击Sent Events中的项选中showAlert，就可以建立 Tap与showAlert之间的联系（在右边栏箭头型图标栏中可以看到或着此时打开ViewController.swift我们也能看到showAlert()行前面的数字变成了实心圆）。
+ 或者双屏显示内容的话之间将其指向ViewController.swift 中（这样会自动添加程序，给函数命名，不用自己添加之前的程序，就直接建立了按键与程序之间的联系）。
+ 然后在ViewController.swift中添加程序：
+@IBAction func showAlert(){ let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fchong96.github.io/blog/dialogpopup/" />
+<meta property="og:image" content="https://fchong96.github.io/img/dia08302020/dolphin.jpg" />
+<meta property="og:image" content="https://fchong96.github.io/img/dia08302020/dialog1.png" />
+<meta property="og:image" content="https://fchong96.github.io/img/dia08302020/result.png" />
+<meta property="article:published_time" content="2020-08-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fchong96.github.io/img/dia08302020/dolphin.jpg"/>
+
+<meta name="twitter:title" content="UIKit学习—如何弹出对话框"/>
+<meta name="twitter:description" content="最近开始阅读raywenderlich的iOS Apprentice1来学习UIKit 和 SwiftUI。 第一个app是Bullseye, 一个简单的小游戏，考验谁的估计更准确（类似于商场门口按10秒得优惠券的小游戏）。这也是我学习CS193P期间的补充。 首先要解决的就是弹出对话框的使用，本文通过简单的程序说明弹出式对话框的使用方法。
+ 前言 弹出式对话框在iOS中经常使用，无论是APP Store中下载App时，还是输错密码的提示，很多地方都在使用。而且其程序比较简单，一般封装起来使用。
+本文只是以例子的形式简单的实现弹出对话框的使用。
+准备 操作系统：macOS Catalina 10.15.6 Xcode: Version 11.3.1
+开始 首先我们需要新建一个Xcode project，选择iOS下Single View App模版，然后给文件命名。注意 Language选择 Swift ，Use Interface选择 Storyboard ，因为我们要使用UIKit，而且不需要 Use Core Data, Include Unit Tests 和 Include UI Tests。
+创建成功后，我们首先要创建一个按键来触发弹出对话框的动作，就像你在手机上滑或者按按键一样。我们找到左侧Project navigator，点击Main.storyboard来编辑我们的视图。点击右上边工具条中加号图案，会显示出可用的控件列表。我们只需要添加一个按键（Button）即可。将它拖到Interface Bulider中会显示出其与边缘的位置关系，我们可以靠左边，靠右边或者放在视图正中间。双击Button 可以给它重命名（它默认叫Button，我改为了Tap）。通过调整它边框的大小我们可以调整它所占的范围。字体可以在右边栏Button中Font中修改。
+点击左侧Project navigator中ViewController.swift来添加本次实验的程序。ViewController.swift是一段swift程序来允许我们对视图进行控制。每一个视图都应该对应一个swift文件。 在class ViewController中添加下列程序：
+@IBAction func showAlert(){ } 这时候运行程序是没有反应的。因为我们按键Tap没有与showAlert之间建立联系，同时我们的showAlert中也没有要执行的内容。
+在Main.storyboard中选中Tap按住control键将其拖到View Controller Scence中的View Controller, 会弹Action Segue，点击Sent Events中的项选中showAlert，就可以建立 Tap与showAlert之间的联系（在右边栏箭头型图标栏中可以看到或着此时打开ViewController.swift我们也能看到showAlert()行前面的数字变成了实心圆）。
+ 或者双屏显示内容的话之间将其指向ViewController.swift 中（这样会自动添加程序，给函数命名，不用自己添加之前的程序，就直接建立了按键与程序之间的联系）。
+ 然后在ViewController.swift中添加程序：
+@IBAction func showAlert(){ let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: ."/>
+<meta name="twitter:site" content="@@laoerxl"/>
+<link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
+</head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          
+            <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="nav link"><i class='far fa-id-card'></i> About</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> Contact</a>
+          
+        
+      
+      <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+      
+        <a href="/fr" lang="fr" class="nav no-lang link">Français (fr)</a>
+      
+    
+      
+        <a href="/pl" lang="pl" class="nav no-lang link">Polski (pl)</a>
+      
+    
+      
+        <a href="/pt" lang="pt" class="nav no-lang link">Português (pt)</a>
+      
+    
+      
+        <a href="/de" lang="de" class="nav no-lang link">Deutsche (de)</a>
+      
+    
+      
+        <a href="/es" lang="es" class="nav no-lang link">Española (es)</a>
+      
+    
+      
+        <a href="/zh-cn" lang="zh-cn" class="nav no-lang link">中文 (zh-cn)</a>
+      
+    
+      
+        <a href="/zh-tw" lang="zh-tw" class="nav no-lang link">中文 (zh-tw)</a>
+      
+    
+      
+        <a href="/ja" lang="ja" class="nav no-lang link">日本語 (ja)</a>
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=UIKit%e5%ad%a6%e4%b9%a0%e2%80%94%e5%a6%82%e4%bd%95%e5%bc%b9%e5%87%ba%e5%af%b9%e8%af%9d%e6%a1%86&amp;url=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check%20out%20this%20post%20by Feng%20Chong&amp;body=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="https://fchong96.github.io/img/main/panda.jpg" class="circle" width="" alt="Feng Chong" /></a>
+  <header>
+    <h1>Feng Chong</h1>
+  </header>
+  <main>
+    <p>Welcome, here is Feng Chong's Blog.</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/FChong96" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//facebook.com/Cenon%20Fov" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+<li><a href="//youtube.com/Chong%20Chong" target="_blank" rel="noopener" title="YouTube" class="fab fa-youtube"></a></li>
+
+
+
+
+<li><a href="//wpa.qq.com/msgrd?v=3&amp;uin=1027221851&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener" title="QQ" class="fab fa-qq"></a></li>
+
+
+<li><a href="//twitter.com/@laoerxl" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:laoerxl@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/dialogpopup/">UIKit学习—如何弹出对话框</a></h2>
+    
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2020-08-30 00:00:00 &#43;0000 UTC">
+      August 30, 2020
+    </time>
+    <span class="author">Feng Chong</span>
+    
+      <p>2 minute read</p>
+    
+  </div>
+</header>
+
+    <section id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=UIKit%e5%ad%a6%e4%b9%a0%e2%80%94%e5%a6%82%e4%bd%95%e5%bc%b9%e5%87%ba%e5%af%b9%e8%af%9d%e6%a1%86&amp;url=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check%20out%20this%20post%20by Feng%20Chong&amp;body=https%3a%2f%2ffchong96.github.io%2fblog%2fdialogpopup%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </section>
+    
+  <a href="/blog/dialogpopup/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/dia08302020/dolphin.jpg" alt="">
+    
+  </a>
+
+
+    <div class="content">
+      <blockquote>
+<p>最近开始阅读raywenderlich的<a href="https://store.raywenderlich.com/products/ios-apprentice">iOS Apprentice</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>来学习UIKit 和 SwiftUI。
+第一个app是Bullseye, 一个简单的小游戏，考验谁的估计更准确（类似于商场门口按10秒得优惠券的小游戏）。这也是我学习CS193P期间的补充。
+首先要解决的就是弹出对话框的使用，本文通过简单的程序说明弹出式对话框的使用方法。</p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>弹出式对话框在iOS中经常使用，无论是APP Store中下载App时，还是输错密码的提示，很多地方都在使用。而且其程序比较简单，一般封装起来使用。</p>
+<p>本文只是以例子的形式简单的实现弹出对话框的使用。</p>
+<p><img src="/img/dia08302020/dialogue.jpg" alt="image"></p>
+<h2 id="准备">准备</h2>
+<p>操作系统：macOS Catalina 10.15.6
+Xcode: Version 11.3.1</p>
+<h2 id="开始">开始</h2>
+<p>首先我们需要新建一个Xcode project，选择iOS下Single View App模版，然后给文件命名。<strong>注意</strong> Language选择 Swift ，Use Interface选择 Storyboard ，因为我们要使用UIKit，而且不需要 Use Core Data, Include Unit Tests 和 Include UI Tests。</p>
+<p>创建成功后，我们首先要创建一个按键来触发弹出对话框的动作，就像你在手机上滑或者按按键一样。我们找到左侧Project navigator，点击Main.storyboard来编辑我们的视图。点击右上边工具条中加号图案，会显示出可用的控件列表。我们只需要添加一个按键（Button）即可。将它拖到Interface Bulider中会显示出其与边缘的位置关系，我们可以靠左边，靠右边或者放在视图正中间。双击Button 可以给它重命名（它默认叫Button，我改为了Tap）。通过调整它边框的大小我们可以调整它所占的范围。字体可以在右边栏Button中Font中修改。</p>
+<p>点击左侧Project navigator中ViewController.swift来添加本次实验的程序。ViewController.swift是一段swift程序来允许我们对视图进行控制。每一个视图都应该对应一个swift文件。
+在class <code>ViewController</code>中添加下列程序：</p>
+<pre><code>@IBAction func showAlert(){
+}
+</code></pre><p>这时候运行程序是没有反应的。因为我们按键<code>Tap</code>没有与<code>showAlert</code>之间建立联系，同时我们的<code>showAlert</code>中也没有要执行的内容。</p>
+<p>在Main.storyboard中选中<code>Tap</code>按住control键将其拖到View Controller Scence中的View Controller, 会弹Action Segue，点击Sent Events中的项选中showAlert，就可以建立 <code>Tap</code>与<code>showAlert</code>之间的联系（在右边栏箭头型图标栏中可以看到或着此时打开ViewController.swift我们也能看到<code>showAlert()</code>行前面的数字变成了实心圆）。</p>
+<blockquote>
+<p>或者双屏显示内容的话之间将其指向ViewController.swift 中（这样会自动添加程序，给函数命名，不用自己添加之前的程序，就直接建立了按键与程序之间的联系）。</p>
+</blockquote>
+<p>然后在ViewController.swift中添加程序：</p>
+<pre><code>@IBAction func showAlert(){
+    let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: .alert) 
+    
+    let actionTrue = UIAlertAction(title: &quot;Yes&quot;, style: .default, handler: nil)
+    
+    alert.addAction(actionTrue)
+
+    present(alert, animated: true, completion: nil)
+}
+</code></pre><p>编译运行，就能看到当按下按键时会弹出对话框。</p>
+<p><code>UIAlertController</code>就是一个向用户显示警报消息的对象（object）。其中preferredStyle表示首选风格，是个<code>UIAlertController.Style</code>类型（枚举型，0 - <code>actionSheet</code>(以工作表形式显示) ， 1- <code>alert</code>（以模态（modally）形式显示））。</p>
+<p><code>UIAlertAction</code>表示当对话框弹出时用户可以进行的动作。其中<code>handler</code> 表示按下这个键后的动作。</p>
+<p>present() 表示将当前视图呈现到视图编辑器上显示。<code>animated</code>(Bool)表示是否带动画效果，<code>completion</code>表示执行完成后要执行的函数。这里的动画效果x是系统自带的几种动画，可以自己切换成不是系统自带的动画，动画效果指南后面之后更新这部分内容<a href="https://blog.csdn.net/qq_34195670/article/details/51570186">present动画效果</a>。</p>
+<p>我们也可以给对话框增加几个按键，通过增加<code>UIAlertAction</code>，例如</p>
+<pre><code>@IBAction func showAlert(){
+    let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: .alert) 
+    
+    let actionTrue = UIAlertAction(title: &quot;Yes&quot;, style: .default, handler: nil)
+    let actionFalse = UIAlertAction(title: &quot;No&quot;, style: .cancel, handler: nil)
+    let actionAndOne = UIAlertAction(title: &quot;and one&quot;, style: .destructive, handler: nil)
+    
+    alert.addAction(actionTrue)
+    alert.addAction(actionTrue)
+    alert.addAction(actionFalse)
+    alert.addAction(actionAndOne)
+    
+    present(alert, animated: true, completion: nil)
+}
+</code></pre><p><img src="/img/dia08302020/dialog1.jpg" alt="image"></p>
+<h2 id="幕后">幕后</h2>
+<p>app是由各种对象组成的，各个对象之间互相发送消息。例如本文中的<code>UIButton</code>对象当它被按下时
+会向ViewController发送信息，使其下的不同对象开始工作。iOS程序都是事件驱动的，所以平时它可能一直在休眠，都等待着被触发。按键的按下事件联系着ViewController中的action。当按键被按下时，它向你的视图发送执行<code>showAlert</code>函数信息。而在<code>showAlert</code>内部，ViewController又在<code>UIAlertController</code>中添加了<code>UIAlertAction</code>。为了展示这个alert，视图控制器又发送present信息。然后整个app都通过这种方式进行工作。</p>
+<p><img src="/img/dia08302020/img36.jpg" alt="image"></p>
+<p>之后它将再次进入休眠，等待着被唤醒</p>
+<h2 id="后记">后记</h2>
+<p>可以增加函数来增加弹出警告按键后的操作和显示视图后的操作。</p>
+<pre><code>import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    //显示视图后的操作
+    func  complete() -&gt; () {
+        print(&quot;Hello world&quot;)
+    }
+    
+    @IBAction func showAlert(){
+        let alert = UIAlertController(title: &quot;需验证&quot;, message: &quot;请确认下载&quot;, preferredStyle: .alert) 
+        
+        let actionTrue = UIAlertAction(title: &quot;Yes&quot;, style: .default, handler: nil)//之后的action
+        
+        let actionFalse = UIAlertAction(title: &quot;No&quot;, style: .cancel, handler: nil)
+        let actionAndOne = UIAlertAction(title: &quot;and one&quot;, style: .destructive, handler: nil)
+        
+        alert.addAction(actionTrue)
+        alert.addAction(actionFalse)
+        alert.addAction(actionAndOne)
+        
+        present(alert, animated: true, completion: complete)
+    }
+}
+</code></pre><p><img src="/img/dia08302020/result.jpg" alt="image"></p>
+<p>出来弹窗后会显示Hello world。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Joey deVilla. <a href="https://store.raywenderlich.com/products/ios-apprentice">The iOS Apprentice</a>[J]. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+    <footer>
+      <ul class="stats">
+  <li class="categories">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/code/">code</a></li>
+        
+          <li><a class="article-terms-link" href="/categories/programming/">programming</a></li>
+        
+      
+    
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/uikit/">UIkit</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/alert/">alert</a></li>
+        
+      
+    
+    </ul>
+  </li>
+</ul>
+
+    </footer>
+  </article>
+  
+  <article class="post">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "FC's Blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+
+
+
+
+  <div class="pagination">
+  
+    <a href="/blog/markdown-syntax/" class="button"><div class="previous"><div>欢迎 Welcome</div></div></a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent posts</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/dialogpopup/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/dia08302020/dolphin.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/dialogpopup/">UIKit学习—如何弹出对话框</a></h2>
+          <time class="published" datetime="">August 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/markdown-syntax/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/2014/04/pic02.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/markdown-syntax/">欢迎 Welcome</a></h2>
+          <time class="published" datetime="">July 2, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/rich-content/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/2017/08/pic04.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/rich-content/">Rich Content</a></h2>
+          <time class="published" datetime="">March 10, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/placeholder-text/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/2014/09/pic03.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/placeholder-text/">Placeholder Text</a></h2>
+          <time class="published" datetime="">March 9, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/emoji-support/" class="image featured">
+    
+      <img src="https://fchong96.github.io/img/2014/04/pic01.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/emoji-support/">Emoji Support</a></h2>
+          <time class="published" datetime="">March 5, 2019</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See more</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/code/">code<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/programming/">programming<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/aliquam-auctor/">aliquam-auctor<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ayurvedha/">ayurvedha<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/do/">do<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/fable/">fable<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/medicine/">medicine<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/story/">story<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/syntax/">syntax<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/themes/">themes<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>This blog is powered by hugo.</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/FChong96" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//facebook.com/Cenon%20Fov" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+<li><a href="//youtube.com/Chong%20Chong" target="_blank" rel="noopener" title="YouTube" class="fab fa-youtube"></a></li>
+
+
+
+
+<li><a href="//wpa.qq.com/msgrd?v=3&amp;uin=1027221851&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener" title="QQ" class="fab fa-qq"></a></li>
+
+
+<li><a href="//twitter.com/@laoerxl" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:laoerxl@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        Feng Chong
+      
+    . <br>
+    Theme: <a href='https://github.com/pacollins/hugo-future-imperfect-slim' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>A <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP port</a> | Powered by <a href='https://gohugo.io/' title='0.62.2' target='_blank' rel='noopener'>Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.d92028a156866a96e84acecc70bb742192450fb533b978e0e07ff53db5efe871.js" integrity="sha256-2SAooVaGapboSs7McLt0IZJFD7UzuXjg4H/1PbXv6HE="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>
