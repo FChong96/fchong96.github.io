@@ -206,6 +206,11 @@
   </url>
   
   <url>
+    <loc>https://fchong96.github.io/tags/feng-chong/</loc>
+    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://fchong96.github.io/about/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
   </url>
@@ -271,21 +276,6 @@
   </url>
   
   <url>
-    <loc>https://fchong96.github.io/tags/themes/</loc>
-    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://fchong96.github.io/fr/tags/themes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fchong96.github.io/tags/themes/"
-                />
-  </url>
-  
-  <url>
     <loc>https://fchong96.github.io/categories/themes/</loc>
     <lastmod>2020-07-02T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -297,6 +287,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://fchong96.github.io/categories/themes/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://fchong96.github.io/tags/themes/</loc>
+    <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://fchong96.github.io/fr/tags/themes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fchong96.github.io/tags/themes/"
                 />
   </url>
   
